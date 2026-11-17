@@ -1,0 +1,207 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1,viewport-fit=cover"><style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#faf9f5;color:#141413}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
+<title>Rahim on Retailing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,800&family=Newsreader:opsz,wght@6..72,400;6..72,600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a shelf-edge. Each Chapter One section hangs from a price-label strip; a sticky aisle index runs down the left on wide screens. */
+:root{
+  --paper:#f6f5f0;
+  --ink:#1b2320;
+  --muted:#58635e;
+  --label:#f0c93a;      /* shelf-label yellow, the one loud colour */
+  --label-ink:#1b2320;
+  --rule:#d5d6cd;
+  --panel:#ecebe3;
+  --f-display:"Bricolage Grotesque","Arial Narrow",Arial,sans-serif;
+  --f-body:"Newsreader",Georgia,"Times New Roman",serif;
+  --f-mono:"IBM Plex Mono",ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --paper:#141a18;--ink:#eceee8;--muted:#9aa6a0;--label:#f0c93a;--label-ink:#1b2320;--rule:#2d3733;--panel:#1c2421;color-scheme:dark}}
+:root[data-theme="dark"]{
+  --paper:#141a18;--ink:#eceee8;--muted:#9aa6a0;--label:#f0c93a;--label-ink:#1b2320;--rule:#2d3733;--panel:#1c2421;color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:var(--f-body);font-size:1.125rem;line-height:1.65;padding-inline:1rem;padding-block:0 4rem}
+.wrap{max-width:68rem;margin-inline:auto}
+a{color:inherit}
+:focus-visible{outline:3px solid var(--label);outline-offset:3px}
+
+header.top{display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap;padding-block:1rem;border-bottom:2px solid var(--ink);font-family:var(--f-mono);font-size:.78rem;letter-spacing:.08em;text-transform:uppercase}
+header.top b{font-family:var(--f-display);font-size:1.05rem;letter-spacing:0;text-transform:none;font-weight:800}
+
+.hero{display:grid;grid-template-columns:minmax(0,1fr);gap:2rem;padding-block:3rem 2.5rem;border-bottom:1px solid var(--rule)}
+.hero h1{font-family:var(--f-display);font-weight:800;font-size:clamp(2.6rem,8vw,5.6rem);line-height:.98;letter-spacing:-.02em;margin:0;text-wrap:balance;max-width:16ch}
+.hero h1 mark{background:var(--label);color:var(--label-ink);padding:0 .15em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+.hero p.lede{max-width:40rem;margin:0;font-size:1.3rem;color:var(--muted)}
+.meta{display:flex;flex-wrap:wrap;gap:.5rem 1.5rem;font-family:var(--f-mono);font-size:.8rem;color:var(--muted)}
+.meta span b{color:var(--ink);font-weight:500}
+
+.layout{display:grid;grid-template-columns:minmax(0,1fr);gap:2rem;padding-top:2rem}
+nav.aisles{font-family:var(--f-mono);font-size:.78rem}
+nav.aisles ol{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:.4rem}
+nav.aisles a{display:block;text-decoration:none;padding:.3rem .55rem;border:1px solid var(--rule);background:var(--panel)}
+nav.aisles a:hover{background:var(--label);color:var(--label-ink);border-color:var(--label)}
+nav.aisles .n{color:var(--muted);margin-right:.35rem}
+nav.aisles a:hover .n{color:var(--label-ink)}
+@media(min-width:60rem){
+  .layout{grid-template-columns:13rem minmax(0,1fr);gap:3rem}
+  nav.aisles{position:sticky;top:1rem;align-self:start}
+  nav.aisles ol{flex-direction:column;gap:0}
+  nav.aisles a{border:0;border-bottom:1px solid var(--rule);background:none;padding:.55rem 0}
+  nav.aisles a:hover{background:none;color:var(--ink);padding-left:.4rem;box-shadow:inset 3px 0 0 var(--label)}
+  nav.aisles a:hover .n{color:var(--muted)}
+}
+
+main{min-width:0;display:flex;flex-direction:column;gap:3.5rem}
+section{scroll-margin-top:1rem;min-width:0}
+.tag{display:inline-flex;align-items:baseline;gap:.75rem;background:var(--label);color:var(--label-ink);padding:.35rem .8rem;font-family:var(--f-mono);font-size:.8rem;letter-spacing:.04em;margin-bottom:1rem}
+.tag b{font-family:var(--f-display);font-size:1.15rem;font-weight:800;letter-spacing:-.005em}
+section h2{display:contents}
+section p{margin:0 0 1rem;max-width:42rem}
+section ol.q,section ol.o{max-width:42rem;margin:0 0 1rem;padding-left:1.4rem}
+section li{margin-bottom:.6rem}
+section li::marker{font-family:var(--f-mono);font-size:.85em;color:var(--muted)}
+.funnel{display:flex;flex-wrap:wrap;gap:.4rem;margin:0 0 1.2rem;padding:0;list-style:none;font-family:var(--f-mono);font-size:.75rem}
+.funnel li{margin:0;padding:.25rem .6rem;border:1px solid var(--ink)}
+.funnel li:not(:last-child)::after{content:"\2192";margin-left:.6rem;color:var(--muted)}
+.funnel li{display:flex}
+.pending{font-family:var(--f-mono);font-size:.78em;background:var(--panel);border:1px dashed var(--muted);padding:.05rem .4rem;white-space:normal}
+.callout{border-left:4px solid var(--ink);background:var(--panel);padding:1rem 1.2rem;max-width:42rem;margin:0 0 1rem}
+.callout p{margin:0}
+.callout strong{font-family:var(--f-mono);font-size:.78rem;letter-spacing:.05em;text-transform:uppercase;font-weight:500}
+
+.map{width:100%;overflow-x:auto;margin:0 0 1.2rem}
+table{border-collapse:collapse;width:100%;min-width:34rem;font-size:.98rem}
+th,td{text-align:left;vertical-align:top;padding:.65rem .8rem;border-bottom:1px solid var(--rule)}
+th{font-family:var(--f-mono);font-size:.74rem;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);border-bottom:2px solid var(--ink)}
+td:first-child{font-family:var(--f-mono);font-size:.85rem;white-space:nowrap}
+
+footer{margin-top:4rem;padding-top:1.2rem;border-top:2px solid var(--ink);display:flex;flex-wrap:wrap;justify-content:space-between;gap:.5rem 2rem;font-family:var(--f-mono);font-size:.78rem;color:var(--muted)}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+</style>
+
+<div class="wrap">
+  <header class="top"><b>Rahim</b><span>Research Project &middot; Chapter One</span></header>
+
+  <div class="hero">
+    <h1>Do small shops know <mark>what is on their shelves?</mark></h1>
+    <p class="lede">A research proposal by Rahim on how inventory management affects the daily running of small supermarkets in Nakuru, Kenya.</p>
+    <div class="meta">
+      <span>Author <b>Rahim</b></span>
+      <span>Field <b>Retailing</b></span>
+      <span>Unit <b>DIT 314 / DBIT 226 / DCOM 224</b></span>
+      <span>Study area <b>Nakuru, Kenya</b></span>
+    </div>
+  </div>
+
+  <div class="layout">
+    <nav class="aisles" aria-label="Chapter One sections">
+      <ol>
+        <li><a href="#s1"><span class="n">1.1</span>Introduction</a></li>
+        <li><a href="#s2"><span class="n">1.2</span>Background</a></li>
+        <li><a href="#s3"><span class="n">1.3</span>Problem</a></li>
+        <li><a href="#s4"><span class="n">1.4</span>Purpose</a></li>
+        <li><a href="#s5"><span class="n">1.5</span>Objectives</a></li>
+        <li><a href="#s6"><span class="n">1.6</span>Questions</a></li>
+        <li><a href="#s7"><span class="n">1.7</span>Justification</a></li>
+        <li><a href="#s8"><span class="n">1.8</span>Scope</a></li>
+        <li><a href="#s9"><span class="n">1.9</span>Limitations</a></li>
+        <li><a href="#s10"><span class="n">1.10</span>Assumptions</a></li>
+      </ol>
+    </nav>
+
+    <main>
+      <section id="s1">
+        <div class="tag"><span>1.1</span><b>Introduction</b></div>
+        <p>This chapter sets out the study of inventory management in small supermarkets in Nakuru. It begins with the background of the problem, moving from the global retail picture to Kenya and then to Nakuru. It then states the problem, the purpose, the objectives and the research questions. The chapter closes with the justification, scope, limitations and assumptions of the study.</p>
+      </section>
+
+      <section id="s2">
+        <div class="tag"><span>1.2</span><b>Background to the Study</b></div>
+        <ul class="funnel" aria-label="Background narrows from global to local">
+          <li>Global</li><li>Africa</li><li>Kenya</li><li>Rift Valley</li><li>Nakuru</li>
+        </ul>
+        <p>Retailing is the last step in the supply chain, where goods reach the person who will use them. Around the world, retailers carry a large share of their capital as stock, so what sits on the shelf, how long it sits and whether it runs out all decide whether the business makes money. Larger chains answer this with barcode scanners, point-of-sale software and automated reordering, which show stock levels as sales happen.</p>
+        <p>In Africa, grocery retail is still dominated by small, owner-run outlets, and modern chains are growing next to them. Many of these outlets face unreliable supply, thin margins and limited access to software. Kenya follows this pattern. Supermarkets and mini-markets have spread through Kenyan towns, including Nakuru, and mobile money has made payment faster. Stock records, however, often stay on paper or in memory. <span class="pending">add a figure and source on retail's share of the Kenyan economy</span></p>
+        <p>In Nakuru, small supermarkets sit in estates and along busy roads, competing with kiosks, wholesalers and large chains. A shop that reorders late loses sales to a shop that does not, and a shop that over-orders ties up cash and risks expiry on perishables. Research on retail technology in Kenya has focused largely on large chains and on mobile payments. Far less has asked how small supermarkets track their stock and what that does to their sales and waste. That gap leads directly to the problem below.</p>
+      </section>
+
+      <section id="s3">
+        <div class="tag"><span>1.3</span><b>Statement of the Problem</b></div>
+        <p>Many small supermarkets in Nakuru track stock by hand or by memory, so owners often learn that an item has run out or expired only after the sale is lost or the goods are wasted. The main causes are the cost of software, limited staff training and the absence of simple tools built for small shops. The size of the problem has not been measured for this group, which is why the study will collect it. <span class="pending">add statistics on stock-outs, shrinkage or expiry losses</span> The owners and staff of small supermarkets are affected most, because lost sales and waste fall directly on thin margins. If the problem is not addressed, these shops will keep losing customers and cash to better-organised competitors, and some will close.</p>
+      </section>
+
+      <section id="s4">
+        <div class="tag"><span>1.4</span><b>Purpose of the Study</b></div>
+        <p>The purpose of this study is to examine how inventory management practices affect the operations of small supermarkets in Nakuru, Kenya, so that practical improvements can be recommended.</p>
+      </section>
+
+      <section id="s5">
+        <div class="tag"><span>1.5</span><b>Objectives of the Study</b></div>
+        <p><strong>General objective.</strong> To examine the effect of inventory management on the operations of small supermarkets in Nakuru, Kenya.</p>
+        <p>Specific objectives, to be completed within the project period:</p>
+        <ol class="o">
+          <li>To identify the methods small supermarkets in Nakuru currently use to record and track stock.</li>
+          <li>To determine how often stock-outs and expired goods occur in these supermarkets.</li>
+          <li>To examine the relationship between the stock-tracking method used and sales performance.</li>
+          <li>To describe the barriers that stop small supermarkets from adopting better inventory tools.</li>
+        </ol>
+      </section>
+
+      <section id="s6">
+        <div class="tag"><span>1.6</span><b>Research Questions</b></div>
+        <p>One question for each specific objective:</p>
+        <ol class="q">
+          <li>Which methods do small supermarkets in Nakuru use to record and track stock?</li>
+          <li>How often do stock-outs and expired goods occur in these supermarkets?</li>
+          <li>How does the stock-tracking method used relate to sales performance?</li>
+          <li>What barriers prevent small supermarkets from adopting better inventory tools?</li>
+        </ol>
+        <div class="map">
+          <table>
+            <thead><tr><th>Objective</th><th>Question</th><th>Focus</th></tr></thead>
+            <tbody>
+              <tr><td>Obj. 1 &rarr; Q1</td><td>Current methods</td><td>Identify</td></tr>
+              <tr><td>Obj. 2 &rarr; Q2</td><td>Frequency of stock-outs and expiry</td><td>Determine</td></tr>
+              <tr><td>Obj. 3 &rarr; Q3</td><td>Method versus sales</td><td>Examine</td></tr>
+              <tr><td>Obj. 4 &rarr; Q4</td><td>Barriers to adoption</td><td>Describe</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="s7">
+        <div class="tag"><span>1.7</span><b>Justification for the Study</b></div>
+        <p>Owners and managers of small supermarkets will gain evidence on which stock-tracking practices work and what they cost. Software developers and training providers will see what small retailers need. Policy makers and business support agencies will have local data on the challenges facing small retail in Nakuru. For the researcher, the study applies skills from the diploma programme to a real business problem, and it adds to a small body of local research on small-scale retailing.</p>
+      </section>
+
+      <section id="s8">
+        <div class="tag"><span>1.8</span><b>Scope of the Study</b></div>
+        <p>The study covers small supermarkets in Nakuru, Kenya. The respondents are owners, managers and stock clerks who handle inventory. It looks at stock recording, stock-outs, expiry and sales performance. It does not cover large supermarket chains, kiosks, wholesalers or supermarkets outside Nakuru.</p>
+      </section>
+
+      <section id="s9">
+        <div class="tag"><span>1.9</span><b>Limitations of the Study</b></div>
+        <p>Owners may be unwilling to share sales or loss figures, and the answers they give about their own shops may be inaccurate. The sample will be limited by time and by the shops that agree to take part, so findings may not apply to every supermarket in Kenya.</p>
+        <div class="callout"><p><strong>How these will be reduced</strong><br>Responses will be kept anonymous and figures will be asked for as ranges. Shops will be chosen from several parts of Nakuru town, and interview answers will be compared with what the researcher sees in the stockroom.</p></div>
+      </section>
+
+      <section id="s10">
+        <div class="tag"><span>1.10</span><b>Assumptions of the Study</b></div>
+        <ol class="o">
+          <li>Shops keep some record of stock, on paper or electronically, that can be described and compared.</li>
+          <li>Stock-outs and expired goods are noticed and can be recalled or counted by staff for the study period.</li>
+          <li>Sales figures given as ranges are close enough to the real figures to compare shops.</li>
+          <li>The person who handles stock is the best source of information on how stock is managed.</li>
+        </ol>
+      </section>
+    </main>
+  </div>
+
+  <footer><span>Rahim &middot; Retailing research</span><span>Chapter One &middot; follows the DIT / DBIT / DCOM project guide</span></footer>
+</div>
+
+</body></html>
